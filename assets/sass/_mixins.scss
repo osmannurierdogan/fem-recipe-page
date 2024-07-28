@@ -1,0 +1,50 @@
+@mixin responsive($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 42em) {
+      // 608px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 58.625em) {
+      // 938px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 74em) {
+      // 1176px
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (max-width: 90em) {
+      // 1440px
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      // 1800px
+      @content;
+    }
+  }
+}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@mixin alpha($property, $color-variable, $opacity) {
+  $color-variable-h: var(#{$color-variable + "-h"});
+  $color-variable-s: var(#{$color-variable + "-s"});
+  $color-variable-l: var(#{$color-variable + "-l"});
+  #{$property}: hsla(
+    $color-variable-h,
+    $color-variable-s,
+    $color-variable-l,
+    $opacity
+  );
+}
