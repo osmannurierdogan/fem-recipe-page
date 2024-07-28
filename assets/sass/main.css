@@ -45,6 +45,7 @@ body {
 }
 .recipe__content {
   padding: 3.2rem;
+  padding-top: 1.6rem;
 }
 @media (max-width: 42em) {
   .recipe__content {
